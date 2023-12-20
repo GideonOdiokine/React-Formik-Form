@@ -1,5 +1,3 @@
-// SignInForm.js
-
 import { Formik, Form } from "formik";
 import CustomInput from "./CustomInput";
 
