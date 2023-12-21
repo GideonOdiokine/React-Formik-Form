@@ -1,22 +1,12 @@
 import { Formik, Form } from "formik";
 import CustomInput from "./CustomInput";
 import { useState } from "react";
+import { validate } from '../utils/validate';
+import { checkPasswordStrength } from '../utils/checkPasswordStrength';
 
 const SignInForm = () => {
   const [, setPasswordStrength] = useState(null);
 
-  const checkPasswordStrength = (password) => {
-    const hasNumber = /\d/.test(password);
-    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
-    if (password.length >= 8 && hasNumber && hasSpecialChar) {
-      return "strong";
-    } else if (password.length >= 6 && (hasNumber || hasSpecialChar)) {
-      return "medium";
-    } else {
-      return "weak";
-    }
-  };
 
   const initialValues = {
     email: "",
@@ -27,21 +17,7 @@ const SignInForm = () => {
     console.log(values);
   };
 
-  const validate = (values) => {
-    let errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.email) {
-      errors.email = "Email is required";
-    } else if (!regex.test(values.email)) {
-      errors.email = "Invalid Email";
-    }
-    if (!values.password) {
-      errors.password = "Password is required";
-    } else if (values.password.length < 4) {
-      errors.password = "Password too short";
-    }
-    return errors;
-  };
+
 
   return (
     <Formik
