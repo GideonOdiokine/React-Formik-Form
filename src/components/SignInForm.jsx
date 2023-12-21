@@ -61,7 +61,6 @@ const SignInForm = () => {
             <div className="w-[500px] mx-auto p-8">
               <h1 className="text-2xl font-bold mb-4">Sign in to continue</h1>
               <Form onSubmit={handleSubmit} className="space-y-4">
-                {/* Existing code for email input */}
                 <CustomInput
                   label="Email"
                   type="email"
@@ -69,7 +68,6 @@ const SignInForm = () => {
                   id="email"
                 />
 
-                {/* Existing code for password input */}
                 <CustomInput
                   label="Password"
                   type="password"
